@@ -11,7 +11,7 @@ from gym.envs.mujoco.hopper import HopperEnv
 import os
 import gym
 
-HopperIce = lambda *args, **kwargs : IceFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
+HopperIceWall = lambda *args, **kwargs : IceWallFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
 
 HopperStairs = lambda *args, **kwargs : StairsFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
 
