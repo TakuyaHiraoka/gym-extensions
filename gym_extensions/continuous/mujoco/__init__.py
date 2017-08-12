@@ -133,8 +133,8 @@ custom_envs = {
                      max_episode_steps=1000,
                      reward_threshold=3800.0,
                      kwargs= dict()),
-            "HopperIce-v0" :
-                dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperIce',
+            "HopperIceWall-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperIceWall',
                      max_episode_steps=1000,
                      reward_threshold=3800.0,
                      kwargs= dict()),
