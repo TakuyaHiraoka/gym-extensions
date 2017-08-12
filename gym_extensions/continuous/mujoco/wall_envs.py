@@ -15,7 +15,7 @@ import pyrr
 from pyrr.utils import all_parameters_as_numpy_arrays
 import math
 import six
-import pdb
+
 
 def isclose(a, b, rel_tol=1e-04, abs_tol=0.0):
     # TODO: move to util func
@@ -39,10 +39,10 @@ def rotate_vector(v, axis, theta):
     return np.dot(R, v)
 
 
-def IceFactory(class_type,):
+def IceWallFactory(class_type,):
     """class_type should be an OpenAI gym time"""
 
-    class IceEnv(class_type, utils.EzPickle):
+    class IceWallEnv(class_type, utils.EzPickle):
         # Using https://github.com/bstadie/third_person_im/blob/88516c1703221586099062053af696f0b4a31cda/rllab/envs/mujoco/maze/maze_env.py
         # as a base
         # ORI_IND = None
@@ -148,7 +148,7 @@ def IceFactory(class_type,):
             self.model.geom_pos = temp
             self.model._compute_subtree()
             self.model.forward()
-            ob = super(IceEnv, self)._reset()
+            ob = super(IceWallEnv, self)._reset()
             return ob
 
         def _get_obs(self):
@@ -213,13 +213,13 @@ def IceFactory(class_type,):
             # import pdb; pdb.set_trace()
             if self.MANUAL_COLLISION:
                 old_pos = self.get_xy()
-                state, reward, done, info = super(IceEnv, self)._step(action)
+                state, reward, done, info = super(IceWallEnv, self)._step(action)
                 new_pos = self.get_xy()
                 if self._is_in_collision(new_pos):
                     # print("Collision " + new_pos)
                     reward = -10.0
             else:
-                state, reward, done, info = super(IceEnv, self)._step(action)
+                state, reward, done, info = super(IceWallEnv, self)._step(action)
 
 
             next_obs = self._get_obs()
@@ -229,7 +229,7 @@ def IceFactory(class_type,):
 
         def action_from_key(self, key):
             return self.action_from_key(key)
-    return IceEnv
+    return IceWallEnv
 
 
 
