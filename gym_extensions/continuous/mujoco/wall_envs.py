@@ -595,7 +595,7 @@ def MazeFactory(class_type):
             _, file_path = tempfile.mkstemp(text=True)
             tree.write(file_path)
 
-            import pdb;pdb.set_trace()
+            # import pdb;pdb.set_trace()
             # self._goal_range = self._find_goal_range()
             self._cached_segments = None
             self.file_path=file_path
