@@ -2,7 +2,7 @@ import numpy as np
 from gym import utils
 from gym.envs.mujoco import mujoco_env
 import os.path as osp
-from gym_extensions.continuous.mujoco.wall_envs import WallEnvFactory
+from gym_extensions.continuous.mujoco.wall_envs import *
 from gym_extensions.continuous.mujoco.gravity_envs import GravityEnvFactory
 from gym_extensions.continuous.mujoco.perturbed_bodypart_env import ModifiedSizeEnvFactory
 
@@ -10,8 +10,18 @@ from gym.envs.mujoco.hopper import HopperEnv
 
 import os
 import gym
+import pdb
+
+HopperWallEnv2 = lambda *args, **kwargs : WallEnvFactory2(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
+
+HopperWallRandEnv = lambda *args, **kwargs : WallRandEnvFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
+
 
 HopperWallEnv = lambda *args, **kwargs : WallEnvFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
+
+HopperStairs = lambda *args, **kwargs : StairsFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
+
+HopperRamp = lambda *args, **kwargs : RampFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", ori_ind=-1, *args, **kwargs)
 
 HopperGravityEnv = lambda *args, **kwargs : GravityEnvFactory(ModifiedHopperEnv)(model_path=os.path.dirname(gym.envs.mujoco.__file__) + "/assets/hopper.xml", *args, **kwargs)
 
@@ -25,6 +35,7 @@ class ModifiedHopperEnv(HopperEnv, utils.EzPickle):
     def __init__(self, **kwargs):
         mujoco_env.MujocoEnv.__init__(self, kwargs["model_path"], 4)
         utils.EzPickle.__init__(self)
+
 
 class HopperWithSensorEnv(HopperEnv, utils.EzPickle):
     """
@@ -44,3 +55,5 @@ class HopperWithSensorEnv(HopperEnv, utils.EzPickle):
             # goal_readings
         ])
         return obs
+
+

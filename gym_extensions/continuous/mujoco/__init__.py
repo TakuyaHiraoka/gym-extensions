@@ -28,6 +28,32 @@ custom_envs = {
                      kwargs= dict()),
 
             # modified gravity - Hopper
+            "AntGravityMars-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_ant:AntGravityEnv',
+                     max_episode_steps=1000,
+                     reward_threshold=3800.0,
+                     kwargs= dict(gravity=-3.711)),            
+            "AntGravityQuarter-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_ant:AntGravityEnv',
+                     max_episode_steps=1000,
+                     reward_threshold=3800.0,
+                     kwargs= dict(gravity=-2.5)),                
+            "AntGravityHalf-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_ant:AntGravityEnv',
+                     max_episode_steps=1000,
+                     reward_threshold=3800.0,
+                     kwargs= dict(gravity=-4.905)),
+            "AntGravityOneAndHalf-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_ant:AntGravityEnv',
+                     max_episode_steps=1000,
+                     reward_threshold=3800.0,
+                     kwargs= dict(gravity=-14.715)),
+
+            "HopperGravityQuarter-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperGravityEnv',
+                     max_episode_steps=1000,
+                     reward_threshold=3800.0,
+                     kwargs= dict(gravity=-2.5)),
             "HopperGravityHalf-v0" :
                 dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperGravityEnv',
                      max_episode_steps=1000,
@@ -48,6 +74,11 @@ custom_envs = {
                      max_episode_steps=1000,
                      reward_threshold=3800.0,
                      kwargs= dict(gravity=-12.2625)),
+
+            "Walker2dGravityQuarter-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_walker2d:Walker2dGravityEnv',
+                     max_episode_steps=1000,
+                     kwargs= dict(gravity=-2.5)),
             "Walker2dGravityHalf-v0" :
                 dict(path='gym_extensions.continuous.mujoco.modified_walker2d:Walker2dGravityEnv',
                      max_episode_steps=1000,
@@ -64,6 +95,12 @@ custom_envs = {
                 dict(path='gym_extensions.continuous.mujoco.modified_walker2d:Walker2dGravityEnv',
                      max_episode_steps=1000,
                      kwargs= dict(gravity=-12.2625)),
+
+            "HalfCheetahGravityQuarter-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_half_cheetah:HalfCheetahGravityEnv',
+                     max_episode_steps=1000,
+                     reward_threshold=4800.0,
+                     kwargs= dict(gravity=-2.5)),
             "HalfCheetahGravityHalf-v0" :
                 dict(path='gym_extensions.continuous.mujoco.modified_half_cheetah:HalfCheetahGravityEnv',
                      max_episode_steps=1000,
@@ -84,6 +121,7 @@ custom_envs = {
                      max_episode_steps=1000,
                      reward_threshold=4800.0,
                      kwargs= dict(gravity=-12.2625)),
+
             "HumanoidGravityHalf-v0" :
                 dict(path='gym_extensions.continuous.mujoco.modified_humanoid:HumanoidGravityEnv',
                      max_episode_steps=1000,
@@ -100,8 +138,43 @@ custom_envs = {
                 dict(path='gym_extensions.continuous.mujoco.modified_humanoid:HumanoidGravityEnv',
                      max_episode_steps=1000,
                      kwargs= dict(gravity=-12.2625)),
+
+
+
+            ### Environment with walls
+            "AntMaze-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_ant:AntMaze',
+                     max_episode_steps=1000,
+                     reward_threshold=3800.0,
+                     kwargs= dict()),
+            "SwimmerMaze-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_swimmer:SwimmerMaze',
+                     max_episode_steps=2000,
+                     reward_threshold=3800.0,
+                     kwargs= dict()),                
+            "HopperStairs-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperStairs',
+                     max_episode_steps=2000,
+                     reward_threshold=3800.0,
+                     kwargs= dict()),
+            "HopperRamp-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperRamp',
+                     max_episode_steps=2000,
+                     reward_threshold=3800.0,
+                     kwargs= dict()),
+
             "HopperWall-v0" :
                 dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperWallEnv',
+                     max_episode_steps=2000,
+                     reward_threshold=3800.0,
+                     kwargs= dict()),
+            "HopperWallRand-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperWallRandEnv',
+                     max_episode_steps=2000,
+                     reward_threshold=3800.0,
+                     kwargs= dict()),                
+            "HopperWall2-v0" :
+                dict(path='gym_extensions.continuous.mujoco.modified_hopper:HopperWallEnv2',
                      max_episode_steps=1000,
                      reward_threshold=3800.0,
                      kwargs= dict()),

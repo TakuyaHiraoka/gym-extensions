@@ -10,6 +10,7 @@ import os
 from gym import utils
 from gym.envs.mujoco import mujoco_env
 import mujoco_py
+import pdb
 
 def GravityEnvFactory(class_type):
     """class_type should be an OpenAI gym type"""
